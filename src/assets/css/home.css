@@ -1,0 +1,116 @@
+/* .imageSize {
+  display: flex;
+  width: 25px;
+  height: 25px;
+}
+.header {
+  display: flex;
+  column-gap: 46px;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d6171;
+  height: 70px;
+  width: 100%;
+}
+.siderbar {
+  padding-top: 28px;
+  background-color: #1b878f;
+  width: 85px;
+  height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  border-radius: 0 60px 20px 0;
+}
+.sidebar-container {
+  background-color: #3d6171;
+}
+.section {
+  margin-top: 27px;
+  display: flex;
+  justify-content: center;
+  width: 130%;
+}
+
+.full-container {
+  display: flex;
+}
+.body-container {
+  width: 100%;
+  height: 100%;
+}
+.section1 {
+  justify-content: space-between;
+
+  display: flex;
+}
+.section-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ebffff;
+  padding: 1em 1.5em;
+  border-radius: 10px;
+}
+.section-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.5em;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin: 0px 19px;
+}
+.image-container {
+  background-color: #f2f2f5;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.button-container {
+  display: flex;
+  text-align: end;
+  width: 100%;
+  justify-content: flex-end;
+}
+.section-three {
+  border: 1px solid lightgrey;
+  padding: 1em;
+  border-radius: 10px;
+  margin-top: 25px;
+  box-shadow: (0, 0, 0, 0.5);
+}
+.inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.button {
+  padding: 0em;
+  border: none;
+  padding: 10px;
+  border-radius: 9px;
+  color: white;
+  background-color: #1b878f;
+}
+.box-text {
+  display: flex;
+  align-self: flex-start;
+}
+.css-46bh2p-MuiCardContent-root {
+  padding: 10px !important;
+}
+.btn-clor {
+  color: #1b878f !important;
+}
+.css-19kzrtu {
+  padding: 14px !important;
+}
+.listItem {
+  padding: 25px;
+}
+.listItem:last-of-type {
+  margin-top: auto;
+} */

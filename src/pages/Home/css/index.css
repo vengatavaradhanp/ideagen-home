@@ -1,0 +1,189 @@
+.homeGrid8 {
+  background: #ebffff;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.homeAlert {
+  font-weight: bold;
+  margin: 0px;
+}
+.homeAlertButton { 
+  background: #1b878f !important; 
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+.leftCardContanier {
+  border: 1px solid #e5e8ed;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;;
+}
+.leftCardContanierHeading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #304254;
+}
+.leftCardContanierContentbody {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+.leftCardContanierIcon {
+  align-items: center;
+  display: flex;
+}
+.leftCardContanierIconText {
+  font-size: 22px;
+  padding-left: 5px;
+  font-weight: 600;
+  color: #304254;
+}
+.leftCardContanierPara {
+  font-size: 17px;
+  margin: 5px;
+}
+.leftCardContanierButton {
+  background: #1b878f !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+.homeGrid4 {
+  border: 1px solid #e5e8ed;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.rightCardEventImage {
+  width: 100%;
+  height: 230px;
+  border-radius: 10px;
+}
+.rightCardContainer {
+  margin-top: 10px;
+}
+.rightCardContainerHeading {
+  font-size: 18px;
+  font-weight: 700;
+}
+.rightCardCalendarGrid6 {
+  display: flex;
+}
+.rightCardCalendarGrid6Icon {
+  color: rgb(48, 66, 84);
+  margin-right: 3px;
+}
+.rightCardLoacationGrid6 {
+  display: flex;
+}
+.rightCardLoacationGrid6Icon {
+  color: rgb(48, 66, 84);
+  margin-right: 5px;
+}
+.rightCardContainerContent {
+  margin-top: 5px;
+}
+.rightCardButtonContainer {
+  text-align: end;
+  margin-top: 10px;
+}
+.rightCardButton {
+  background: #1b878f !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+.rightCardArrowContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.rightCardArrowBackIcon {
+  cursor: pointer;
+  color: #1b878f;
+  font-size: 26px;
+}
+.rightCardArrowForwardIcon {
+  cursor: pointer;
+  color: #1b878f;
+  font-size: 26px;
+}
+.homeGrid12 {
+  margin-top: 15px;
+}
+.homeGrid12Heading {
+  font-weight: 700;
+  margin: 0px;
+  font-size: 18px;
+  color: #304254;
+}
+.homeGrid12Card {
+  padding: 10px;
+  background-image: linear-gradient( 180deg, hsl(180deg 100% 99%) 0%, hsl(182deg 77% 98%) 17%, hsl(183deg 72% 97%) 30%, hsl(184deg 70% 96%) 42%, hsl(186deg 70% 95%) 53%, hsl(187deg 70% 94%) 62%, hsl(187deg 71% 92%) 70%,  hsl(187deg 71% 89%) 78%, hsl(187deg 71% 87%) 84%, hsl(187deg 71% 84%) 91%, hsl(186deg 71% 81%) 96%, hsl(186deg 71% 78%) 100%);
+  height: 170px;
+  cursor: pointer;
+}
+.homeGrid12ContinerIconName {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.homeGrid12Icon {
+  display: flex;
+  align-items: center;
+}
+.homeGrid12Name {
+  padding: 0px 10px;
+  font-weight: 600;
+}
+.homeGrid12Badge {
+  background: #e70073;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  line-height: 8px;
+}
+.homeGrid12Body {
+  margin-top: 5px;
+}
+.homeGrid12ButtonContainer {
+  text-align: end;
+}
+.homeGrid12Button {
+  background: #1b878f !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+.LanguageIcon{
+    font-size: 46px !important;
+    font-weight: 500;
+    color: #304254;
+}
+.iconFont42{
+    font-size: 42px !important;
+    font-weight: 500;
+    color: #304254;
+}
+.iconFont40{
+    font-size: 40px !important;
+    font-weight: 500;
+    color: #304254;
+}
+.rightCardGridContainer{
+    padding: 0px !important;
+}
+
