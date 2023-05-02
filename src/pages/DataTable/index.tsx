@@ -18,6 +18,7 @@ import {
   TextField,
   IconButton,
   Typography,
+  InputAdornment,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -33,8 +34,9 @@ import { fetchProduct } from "../../actions/product/ProductSlice";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { CenterFocusStrong } from "@mui/icons-material";
+import { CenterFocusStrong, Search } from "@mui/icons-material";
 import AppLoader from "../../components/AppLayout/AppLoader";
+import { toast } from "react-toastify";
 
 function createData(
   id: number,
@@ -109,9 +111,9 @@ export default function DataTable(props: any) {
   const [details, setDetails] = useState({
     name: "",
     Division: "",
-    status: "",
+    status: 0,
     fileUpload: "",
-    DatePicker: "",
+    DatePicker: null,
     publishedBy: "",
   });
 
@@ -120,8 +122,8 @@ export default function DataTable(props: any) {
   }, []);
 
   useEffect(() => {
-    setLoader(products.loading)
-  }, [])
+    setLoader(products.loading);
+  }, []);
 
   const handleSubmit = (e: any) => {
     console.log(details);
@@ -212,8 +214,8 @@ export default function DataTable(props: any) {
                   name="status"
                   onChange={handleChange}
                 >
-                  <MenuItem value="active">Active</MenuItem>
-                  <MenuItem value="Inactive">In Active</MenuItem>
+                  <MenuItem value={0}>Active</MenuItem>
+                  <MenuItem value={1}>In Active</MenuItem>
                 </TextField>
               </div>
             </Grid>
@@ -236,7 +238,7 @@ export default function DataTable(props: any) {
             </Grid>
             <Grid item xs={10} margin={"15px 15px 0px 15px"}>
               <Typography variant="subtitle1" gutterBottom>
-                DatePicker
+                Published Date
               </Typography>
               <div>
                 <LocalizationProvider
@@ -281,6 +283,7 @@ export default function DataTable(props: any) {
                 style={{
                   border: "1px solid #1b878f",
                   background: "#fff",
+                  color: "#1b878f",
                 }}
               >
                 Cancel
@@ -313,7 +316,23 @@ export default function DataTable(props: any) {
           </Button>
         </div>
       </div>
-
+      <div>
+        <Grid container justifyContent="flex-end">
+          <Grid item xs={3} id="searchField">
+            <TextField
+              variant="standard"
+              placeholder="Search"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+        </Grid>
+      </div>
       <div>
         <TableContainer component={Paper} className="tableContainer">
           <Table aria-label="simple table">
@@ -345,6 +364,7 @@ export default function DataTable(props: any) {
                           const records = [...data];
                           records[index].status = 0;
                           setData(records);
+                          toast(`${row.name} is Inactive`);
                         }}
                       >
                         Active
@@ -359,6 +379,7 @@ export default function DataTable(props: any) {
                           const records = [...data];
                           records[index].status = 1;
                           setData(records);
+                          toast(`${row.name} is Active`);
                         }}
                       >
                         Inactive

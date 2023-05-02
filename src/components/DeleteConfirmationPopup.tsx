@@ -43,43 +43,63 @@ const DeleteConfirmationPopup = forwardRef((props: any, ref: any) => {
         open={open}
         onClose={handleClose}
         style={{ textAlign: "center", borderRadius: "10px" }}
+        sx={{
+          "& .MuiDialog-container": {
+            "& .MuiPaper-root": {
+              width: "100%",
+              maxWidth: "450px", // Set your width here
+              borderRadius: "15px",
+            },
+          },
+        }}
       >
         <DialogContent>
-          <DialogTitle style={{ padding: "12px 30px" }}>
-            Do you want to delete this item?
-          </DialogTitle>
-          <p style={{ fontWeight: "bold", margin: "2px", fontSize: "18px" }}>
-            You can't restore it.
-          </p>
-          <DialogContentText style={{ fontStyle: "bold", margin: "2px" }}>
-            Note: Enter <b>"{name}"</b> to Confirm
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="confirm"
-            type="text"
-            variant="outlined"
-            size="small"
-            onChange={handleConfirm}
-          />
+          <div style={{ padding: "15px 20px" }}>
+            <div style={{ fontSize: "22px" }}>
+              Do you want to delete this item?
+            </div>
+            <div style={{ fontSize: "18px", margin: "5px 0px" }}>
+              You can't restore it.
+            </div>
+            <DialogContentText style={{ fontStyle: "bold", margin: "2px" }}>
+              Note: Enter <b>"{name}"</b> to Confirm
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="confirm"
+              type="text"
+              variant="outlined"
+              size="small"
+              onChange={handleConfirm}
+              placeholder={name}
+              sx={{
+                width: '300px'
+              }}
+            />
+            <div style={{ justifyContent: "center", marginTop: "15px" }}>
+              <Button variant="outlined" onClick={handleClose} sx={{ mr: 1 }}  style={{
+                  border: "1px solid #1b878f",
+                  color: "#1b878f",
+                }}>
+                Cancel
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={handleDelete}
+                style={{
+                  border: "0px",
+                  background: "#0d4347",
+                  color: !enable ? "#fff" : "#fff",
+                  opacity: enable ? 1 : .8
+                }}
+                disabled={!enable}
+              >
+                Delete
+              </Button>
+            </div>
+          </div>
         </DialogContent>
-        <DialogActions style={{ justifyContent: "center" }}>
-          <Button variant="outlined" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={handleDelete}
-            style={{
-              // border: "1px solid rgb(27, 135, 143)",
-              background: !enable ? "#80808091" : "rgb(27, 135, 143)",
-              color: !enable ? "#fff" : "#fff",
-            }}
-          >
-            Delete
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

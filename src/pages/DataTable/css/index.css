@@ -32,3 +32,6 @@
 .tableContainer {
   margin-top: 10px;
 }
+#searchField .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  height: 40px !important;
+}

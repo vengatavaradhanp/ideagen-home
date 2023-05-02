@@ -2,7 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import logo from "../../assets/icons/Logo.svg";
+import logo from "../../assets/icons/Ideagen.svg";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import InvertColorsOutlinedIcon from "@mui/icons-material/InvertColorsOutlined";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
