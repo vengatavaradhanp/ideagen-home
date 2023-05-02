@@ -43,10 +43,11 @@ function createData(
   name: string,
   division: string,
   status: number,
+  selling: string,
   published_date: string,
   published_by: string
 ) {
-  return { id, name, division, status, published_date, published_by };
+  return { id, name, division, status, selling, published_date, published_by };
 }
 
 const rows = [
@@ -55,25 +56,52 @@ const rows = [
     "Academy",
     "Learning Management",
     1,
+    "32%",
     "2 April, 2023",
     "Ideagen"
   ),
-  createData(2, "Courson", "Risk Management", 1, "3 April, 2023", "Ideagen"),
+  createData(
+    2,
+    "Courson",
+    "Risk Management",
+    1,
+    "32%",
+    "3 April, 2023",
+    "Ideagen"
+  ),
   createData(
     3,
     "Huddle",
     "Collboration Management",
     1,
+    "32%",
     "6 April, 2023",
     "Ideagen"
   ),
-  createData(4, "Pentana", "Audit Management", 1, "6 April, 2023", "Ideagen"),
-  createData(5, "OpsBase", "Process Management", 1, "9 April, 2023", "Ideagen"),
+  createData(
+    4,
+    "Pentana",
+    "Audit Management",
+    1,
+    "32%",
+    "6 April, 2023",
+    "Ideagen"
+  ),
+  createData(
+    5,
+    "OpsBase",
+    "Process Management",
+    1,
+    "32%",
+    "9 April, 2023",
+    "Ideagen"
+  ),
   createData(
     6,
     "PleaseReview",
     "Document Management",
     0,
+    "32%",
     "10 April, 2023",
     "Q Pulse"
   ),
@@ -82,6 +110,7 @@ const rows = [
     "Q-Pulse*",
     "Quality Management",
     1,
+    "32%",
     "11 April, 2023",
     "Q Pulse"
   ),
@@ -90,6 +119,7 @@ const rows = [
     "Q-Pulse*PM",
     "Complaiance Management",
     1,
+    "32%",
     "12 April, 2023",
     "Ideagen"
   ),
@@ -341,6 +371,7 @@ export default function DataTable(props: any) {
                 <TableCell>Name</TableCell>
                 <TableCell>Division</TableCell>
                 <TableCell align="center">Status</TableCell>
+                <TableCell align="center">Selling</TableCell>
                 <TableCell align="center">Published Date</TableCell>
                 <TableCell align="center">Published By</TableCell>
                 <TableCell>Actions</TableCell>
@@ -386,6 +417,7 @@ export default function DataTable(props: any) {
                       </Button>
                     )}
                   </TableCell>
+                  <TableCell align="center">{row.selling}</TableCell>
                   <TableCell align="center">{row.published_date}</TableCell>
                   <TableCell align="center">{row.published_by}</TableCell>
                   <TableCell>
