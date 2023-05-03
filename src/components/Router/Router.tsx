@@ -12,6 +12,8 @@ import ErrorPage from "../ErrorBoundary/ErrorPage";
 import Form from "../../pages/DataTable/Form";
 import ProtectedRoute from "./ProtectedRoute";
 import ComingSoon from "../ErrorBoundary/ComingSoon";
+import Chart from "../../pages/Analysis";
+import Analysis from "../../pages/Analysis";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,16 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/analysis",
+    element: (
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <ProtectedRoute isLoggedIn>
+          <Analysis/>
+        </ProtectedRoute>
+      </ErrorBoundary>
+    ),
+  },
+  {
     path: "/error",
     element: (
       <ErrorBoundary fallback={<ErrorPage />}>
@@ -60,6 +72,7 @@ const router = createBrowserRouter([
       </ErrorBoundary>
     ),
   },
+  
   {
     path: "*",
     element: (
@@ -68,6 +81,7 @@ const router = createBrowserRouter([
       </ErrorBoundary>
     ),
   },
+  
 ]);
 
 export default function Router() {

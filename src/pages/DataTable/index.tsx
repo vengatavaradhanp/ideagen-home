@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Analysis from "../Analysis";
 import {
   Box,
   Button,
@@ -37,7 +38,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { CenterFocusStrong, Search } from "@mui/icons-material";
 import AppLoader from "../../components/AppLayout/AppLoader";
 import { toast } from "react-toastify";
-
 function createData(
   id: number,
   name: string,
@@ -65,7 +65,7 @@ const rows = [
     "Courson",
     "Risk Management",
     1,
-    "32%",
+    "50%",
     "3 April, 2023",
     "Ideagen"
   ),
@@ -74,7 +74,7 @@ const rows = [
     "Huddle",
     "Collboration Management",
     1,
-    "32%",
+    "60%",
     "6 April, 2023",
     "Ideagen"
   ),
@@ -83,7 +83,7 @@ const rows = [
     "Pentana",
     "Audit Management",
     1,
-    "32%",
+    "80%",
     "6 April, 2023",
     "Ideagen"
   ),
@@ -92,7 +92,7 @@ const rows = [
     "OpsBase",
     "Process Management",
     1,
-    "32%",
+    "65%",
     "9 April, 2023",
     "Ideagen"
   ),
@@ -101,7 +101,7 @@ const rows = [
     "PleaseReview",
     "Document Management",
     0,
-    "32%",
+    "71%",
     "10 April, 2023",
     "Q Pulse"
   ),
@@ -110,7 +110,7 @@ const rows = [
     "Q-Pulse*",
     "Quality Management",
     1,
-    "32%",
+    "20%",
     "11 April, 2023",
     "Q Pulse"
   ),
@@ -119,11 +119,12 @@ const rows = [
     "Q-Pulse*PM",
     "Complaiance Management",
     1,
-    "32%",
+    "40%",
     "12 April, 2023",
     "Ideagen"
   ),
 ];
+
 
 const drawerWidth = 500;
 
@@ -147,6 +148,8 @@ export default function DataTable(props: any) {
     publishedBy: "",
   });
 
+  
+
   useEffect(() => {
     dispatch(fetchProduct());
   }, []);
@@ -154,7 +157,12 @@ export default function DataTable(props: any) {
   useEffect(() => {
     setLoader(products.loading);
   }, []);
-
+ 
+  const handleNavigation=(rowData:any)=>{
+    navigate('/analysis', {state: rowData});
+      }
+      
+  
   const handleSubmit = (e: any) => {
     console.log(details);
     setOpenForm(!openForm);
@@ -421,7 +429,7 @@ export default function DataTable(props: any) {
                   <TableCell align="center">{row.published_date}</TableCell>
                   <TableCell align="center">{row.published_by}</TableCell>
                   <TableCell>
-                    <IconButton onClick={() => setOpenForm(!openForm)}>
+                    <IconButton onClick={() => handleNavigation(row)}>
                       <VisibilityIcon color="warning" />
                     </IconButton>
                     <IconButton onClick={() => setOpenForm(!openForm)}>

@@ -27,7 +27,7 @@ function AppHeader() {
               <IconButton color="inherit" className="toolBarIconButton"  onClick={() => navigate('/data-table')}>
                 <BarChartOutlinedIcon className="toolBarIcon" />
               </IconButton>
-              <IconButton color="inherit" className="toolBarIconButton">
+              <IconButton color="inherit" className="toolBarIconButton" onClick={() => navigate('/analysis')}>
                 <InvertColorsOutlinedIcon className="toolBarIcon" />
               </IconButton>
               <IconButton color="inherit" className="toolBarIconButton">
