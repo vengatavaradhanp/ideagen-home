@@ -19,6 +19,8 @@ export default function Analysis(props: any) {
 
     const [dataShow , setdataShow] = useState<any>({})
     const [allProducts, setAllProducts] = useState([])
+    const [filter, setFilter] = useState([])
+    
     
 
     const [selectedValue, setSelectedValue] = useState<any>("all");
@@ -42,10 +44,14 @@ export default function Analysis(props: any) {
     // console.log("loaction",typeof dataShow.selling)
     
     
-    console.log("data:",selectedValue)
-    const filteredData = selectedValue === "all"
-  ? allProducts
-  : allProducts.filter((item:any) => item.name === selectedValue);
+    // console.log("data:",selectedValue)
+useEffect(() => {
+    const filtered = selectedValue === "all"
+      ? allProducts
+      : allProducts.filter((item:any) => item.name === selectedValue);
+    setFilter(filtered);
+  }, [selectedValue, allProducts]);
+
     const option = {
         tooltip: {
           trigger: 'axis',
@@ -68,7 +74,7 @@ export default function Analysis(props: any) {
             type: 'category',
             // data: ['Academy', 'Courson', 'Huddle', 'Pentana', 'OpsBase', 'PleaseReview', 'Q-Pulse*','Q-Pulse*PM'],
             // data : [dataShow.name],
-            data: filteredData.map((data: any) => data.name),
+            data: filter.map((data: any) => data.name),
             axisTick: {
               alignWithLabel: true
             },
@@ -87,7 +93,7 @@ export default function Analysis(props: any) {
             barWidth: '5%',
         
             // data : [parseInt(dataShow.selling)],
-            data: filteredData.map((data: any) => parseInt(data.selling)),
+            data: filter.map((data: any) => parseInt(data.selling)),
             
             // data: [10, 52, 200, 334, 390, 330, 220,50]
           },
@@ -110,7 +116,7 @@ export default function Analysis(props: any) {
                     select
                     fullWidth
 
-                    onChange={(e) => {setSelectedValue(e.target.value)}}
+                    onChange={(e) => {debugger; setSelectedValue(e.target.value)}}
           >
                   
                   <MenuItem value="all">All</MenuItem>
