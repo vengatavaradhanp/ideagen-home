@@ -18,18 +18,25 @@ export default function Analysis(props: any) {
     const location = useLocation();
 
     const [dataShow , setdataShow] = useState<any>({})
+    const [allProducts, setAllProducts] = useState([])
     
 
-    const [selectedValue, setSelectedValue] = useState<any>(location.state.rowData === null?
-        "all":location.state.rowData.name);
+    const [selectedValue, setSelectedValue] = useState<any>("all");
     const navigate = useNavigate();
     // console.log(Object.keys(dataShow));
     // if(Object.keys(dataShow).length === 0){
         
 
         useEffect(() => {
-          setdataShow(location.state.rowData || {});
-        }, [location.state.rowData]);
+          if(location.state && location.state.rowData) {
+            setSelectedValue(location.state.rowData.name)
+          }
+          if(location.state && location.state.row) {
+            setAllProducts(location.state.row)
+            setdataShow(location.state.rowData || {});
+          }
+          
+        }, [location.state?.rowData]);
         // setdataShow(location.state)
 // }
     // console.log("loaction",typeof dataShow.selling)
@@ -37,8 +44,8 @@ export default function Analysis(props: any) {
     
     console.log("data:",selectedValue)
     const filteredData = selectedValue === "all"
-  ? location.state.row
-  : location.state.row.filter((item:any) => item.name === selectedValue);
+  ? allProducts
+  : allProducts.filter((item:any) => item.name === selectedValue);
     const option = {
         tooltip: {
           trigger: 'axis',
@@ -107,7 +114,7 @@ export default function Analysis(props: any) {
           >
                   
                   <MenuItem value="all">All</MenuItem>
-             {location.state.row.map((data: any) => (
+             {allProducts.map((data: any) => (
               <MenuItem value={data.name}>{data.name}</MenuItem>
             ))} 
                   </TextField>
