@@ -159,7 +159,7 @@ export default function DataTable(props: any) {
   }, []);
  
   const handleNavigation=(rowData:any)=>{
-    navigate('/analysis', {state: rowData});
+    navigate('/analysis', {state:{ rowData:rowData , row: rows}});
       }
       
   

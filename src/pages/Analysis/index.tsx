@@ -18,32 +18,27 @@ export default function Analysis(props: any) {
     const location = useLocation();
 
     const [dataShow , setdataShow] = useState<any>({})
+    
 
-    const [selectedValue, setSelectedValue] = useState<any>(location.state===null?
-        "all":location.state.name);
+    const [selectedValue, setSelectedValue] = useState<any>(location.state.rowData === null?
+        "all":location.state.rowData.name);
     const navigate = useNavigate();
     // console.log(Object.keys(dataShow));
     // if(Object.keys(dataShow).length === 0){
         
 
         useEffect(() => {
-          setdataShow(location.state || {});
-        }, [location.state]);
+          setdataShow(location.state.rowData || {});
+        }, [location.state.rowData]);
         // setdataShow(location.state)
 // }
     // console.log("loaction",typeof dataShow.selling)
-    const allData = [
-        { name: "Academy", selling: 32 },
-        { name: "Courson", selling: 50 },
-        { name: "Huddle", selling: 60 },
-        { name: "Pentana", selling: 80 },
-        { name: "OpsBase", selling: 65 },
-        { name: "PleaseReview", selling: 71 },
-        { name: "Q-Pulse*PM", selling: 20 },
-        { name: "Q-Pulse*", selling: 40 },
-      ];
+    
+    
     console.log("data:",selectedValue)
-    const filteredData = selectedValue === "all"? allData : [dataShow];
+    const filteredData = selectedValue === "all"
+  ? location.state.row
+  : location.state.row.filter((item:any) => item.name === selectedValue);
     const option = {
         tooltip: {
           trigger: 'axis',
@@ -82,7 +77,7 @@ export default function Analysis(props: any) {
           {
             name: 'Direct',
             type: 'bar',
-            barWidth: '10%',
+            barWidth: '5%',
         
             // data : [parseInt(dataShow.selling)],
             data: filteredData.map((data: any) => parseInt(data.selling)),
@@ -107,13 +102,15 @@ export default function Analysis(props: any) {
                     variant="outlined"
                     select
                     fullWidth
-                    onChange={(e) => { setSelectedValue(e.target.value)}}
+
+                    onChange={(e) => {setSelectedValue(e.target.value)}}
           >
-            <MenuItem value="all">All</MenuItem>
-            {allData.map((data: any) => (
-            <MenuItem value={data.name}>{data.name}</MenuItem>
+                  
+                  <MenuItem value="all">All</MenuItem>
+             {location.state.row.map((data: any) => (
+              <MenuItem value={data.name}>{data.name}</MenuItem>
             ))} 
-        </TextField>
+                  </TextField>
                 </div>
         <div style={{height:"500px!important"}}>
         <ReactEcharts option={option} style={{height:"580px"}} />
