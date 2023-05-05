@@ -138,7 +138,7 @@ export default function DataTable(props: any) {
   const [openForm, setOpenForm] = React.useState(false);
   const drawerWidth = 500;
   const [loader, setLoader] = useState(true);
-
+  const [items, setItems] = useState([]);
   const [details, setDetails] = useState({
     name: "",
     Division: "",
@@ -147,9 +147,6 @@ export default function DataTable(props: any) {
     DatePicker: null,
     publishedBy: "",
   });
-
-  
-
   useEffect(() => {
     dispatch(fetchProduct());
   }, []);
@@ -158,6 +155,13 @@ export default function DataTable(props: any) {
     setLoader(products.loading);
   }, []);
  
+  
+
+useEffect(() => {
+  localStorage.setItem('rows', JSON.stringify(rows));
+}, [items]);
+  
+
   const handleNavigation=(rowData:any)=>{
     navigate('/analysis', {state:{ rowData:rowData , row: rows}});
       }
@@ -179,8 +183,11 @@ export default function DataTable(props: any) {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+  localStorage.setItem("rows", JSON.stringify(rows));
+  
 
   return (
+    
     <Box className="containerBox">
       <AppLoader state={loader} />
       <Drawer
@@ -461,6 +468,7 @@ export default function DataTable(props: any) {
           <DeleteConfirmationPopup ref={confirmPopup} />
         </div>
       </div>
+      
     </Box>
   );
 }

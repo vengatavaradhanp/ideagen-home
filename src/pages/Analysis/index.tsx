@@ -16,29 +16,33 @@ import ReactEcharts from "echarts-for-react";
 import { useNavigate } from "react-router-dom";
 export default function Analysis(props: any) {
     const location = useLocation();
-
+    const [items, setItems] = useState([]);
+    const savedValue: any = JSON.parse(localStorage.getItem('rows') as string);
     const [dataShow , setdataShow] = useState<any>({})
     const [allProducts, setAllProducts] = useState([])
+    const [localData, setlocalData] = useState(savedValue)
     const [filter, setFilter] = useState([])
-    
-    
-
     const [selectedValue, setSelectedValue] = useState<any>("all");
     const navigate = useNavigate();
     // console.log(Object.keys(dataShow));
     // if(Object.keys(dataShow).length === 0){
-        
+        console.log("dd",localStorage)
+        console.log("sss",location.state==null?"localData":"location.state.row")
 
         useEffect(() => {
+            
           if(location.state && location.state.rowData) {
             setSelectedValue(location.state.rowData.name)
           }
           if(location.state && location.state.row) {
-            setAllProducts(location.state.row)
+            setAllProducts(location.state.row==undefined?localData:location.state.row)
             setdataShow(location.state.rowData || {});
           }
           
         }, [location.state?.rowData]);
+        useEffect(()=>{
+            setAllProducts(!location.state?localData:location.state.row)
+        },[])
         // setdataShow(location.state)
 // }
     // console.log("loaction",typeof dataShow.selling)
@@ -52,7 +56,12 @@ useEffect(() => {
     setFilter(filtered);
   }, [selectedValue, allProducts]);
 
+
+  
+  
+  
     const option = {
+        
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -107,17 +116,17 @@ useEffect(() => {
           <Typography variant="h4">Analysis</Typography>
         </div>
         <div style={{display:"flex",justifyContent:"end",padding:"0px 68px 0px 0px"}} >
-                  <TextField
-                  style={{width:"20%"}}
-                    id="outlined-basic"
-                    placeholder="All"
-                    value={selectedValue}
-                    variant="outlined"
-                    select
-                    fullWidth
+        <TextField
+  style={{width:"20%"}}
+  id="outlined-basic"
+  placeholder="All"
+  value={selectedValue || ""}
+  variant="outlined"
+  select
+  fullWidth
+  onChange={(e) => setSelectedValue(e.target.value)}
+>
 
-                    onChange={(e) => {debugger; setSelectedValue(e.target.value)}}
-          >
                   
                   <MenuItem value="all">All</MenuItem>
              {allProducts.map((data: any) => (
